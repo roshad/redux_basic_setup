@@ -5,10 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 
-
-import { createStore } from 'redux'
-const store = createStore(()=>{})
-
+import { createStore } from "redux";
+const store = createStore(counterReducer);
+function counterReducer(count = 0, action) {
+  switch (action.type) {
+    case "counter/incremented":
+      return { value: count + 1 };
+    case "counter/decremented":
+      return { value: count - 1 };
+    default:
+      return count;
+  }
+}
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
