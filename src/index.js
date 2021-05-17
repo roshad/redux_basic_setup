@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 
 import { createStore } from "redux";
-const store = createStore(counterReducer);
+const store = createStore(counterReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 function counterReducer(count = 0, action) {
   switch (action.type) {
     case "counter/incremented":
