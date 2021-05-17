@@ -10,9 +10,9 @@ const store = createStore(counterReducer);
 function counterReducer(count = 0, action) {
   switch (action.type) {
     case "counter/incremented":
-      return { value: count + 1 };
+      return  count + 1 ;
     case "counter/decremented":
-      return { value: count - 1 };
+      return  count - 1 ;
     default:
       return count;
   }

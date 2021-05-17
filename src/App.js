@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 const mapStateToProps = (count) => ({
@@ -8,18 +8,13 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch,
 });
 
-function App() {
-  const [counter, setCounter] = useState(0);
-
-  // Action: code that causes an update to the state when something happens
-  const increment = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
-
-  // View: the UI definition
+function App(props) {
   return (
     <div>
-      Value: {counter} <button onClick={increment}>Increment</button>
+      Value: {props.count}
+      <button onClick={() => props.dispatch({ type: "counter/incremented" })}>
+        Increment
+      </button>
     </div>
   );
 }
